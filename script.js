@@ -10,5 +10,9 @@ function writePassword() {
 
 }
 
+function generatePassword(){
+  return "temporary password";
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
