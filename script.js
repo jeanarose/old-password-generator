@@ -11,19 +11,6 @@ function writePassword() {
 }
 
 function generatePassword(){
-  return "temporary password";
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-// GIVEN I need a new, secure password
-
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-function passwordCriteria() {
   var characters = prompt("How many characters do you want your password to be?");
   var lowercase = prompt("Do you want to include lowercase characters?");
   var uppercase = prompt("Do you want to include uppercase characters?");
@@ -53,9 +40,19 @@ function passwordCriteria() {
   } else {
     // Do not include special characters
   }
+  return "temporary password";
 }
 
-passwordCriteria()
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+// GIVEN I need a new, secure password
+
+// WHEN I click the button to generate a password
+// THEN I am presented with a series of prompts for password criteria
+// WHEN prompted for password criteria
+// THEN I select which criteria to include in the password
+
 
 // WHEN prompted for the length of the password
 // THEN I choose a length of at least 8 characters and no more than 128 characters
