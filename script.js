@@ -10,37 +10,48 @@ function writePassword() {
 
 }
 
+// Include lowercase characters in password
+function generateRandomLowercase() {
+  var lowercaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
+  return lowercaseAlphabet[Math.floor(Math.random() * lowercaseAlphabet.length)];
+}
+
 function generatePassword(){
-  var characters = prompt("How many characters do you want your password to be?");
+  var uppercaseAlphabet = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+  var numOfCharacters = prompt("How many characters do you want your password to be?");
   var lowercase = prompt("Do you want to include lowercase characters?");
   var uppercase = prompt("Do you want to include uppercase characters?");
   var numeric = prompt("Do you want to include numeric characters?");
   var special = prompt ("Do you want to include special characters?");
+  var password = [];
 
   if(lowercase.toLowerCase === "yes") {
     // Include lowercase characters in password
-  } else {
-    // Do not include lowercase characters in password
-  }
+    password.push(generateRandomLowercase());
+    }
+    console.log(password);
+    return generateRandomLowercase();
 
-  if(uppercase.toLowerCase === "yes") {
-    // Include uppercase characters in password
-  } else {
-    // Do not include uppercase characters in password
-  }
 
-  if(numeric.topLowerCase === "yes") {
-    // Include numbers in password
-  } else {
-    // Do not include numbers in password
-  }
+  // if(uppercase.toLowerCase === "yes") {
+  //   // Include uppercase characters in password
+  // } else {
+  //   // Do not include uppercase characters in password
+  // }
 
-  if(special === "yes") {
-    // Include special characters
-  } else {
-    // Do not include special characters
-  }
-  return "temporary password";
+  // if(numeric.toLowerCase === "yes") {
+  //   // Include numbers in password
+  // } else {
+  //   // Do not include numbers in password
+  // }
+
+  // if(special === "yes") {
+  //   // Include special characters
+  // } else {
+  //   // Do not include special characters
+  // }
+  // return "temporary password";
+
 }
 
 // Add event listener to generate button
