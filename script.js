@@ -9,19 +9,18 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Store how many characters
-
 function generatePassword() {
   var password = [];
   var lowercase = prompt("Y / N: Do you want to include lowercase characters?");
 
   if (lowercase === "y") {
-    // Include lowercase characters in password
+    // Generate random lowercase
     console.log("Your password included lowercase characters!");
     var alphabetLowercase = "abcdefghijklmnopqrstuvwxyz";
     var randomLowercase =
       alphabetLowercase[Math.floor(Math.random() * alphabetLowercase.length)];
-    return randomLowercase;
+    password.push(randomLowercase)
+    console.log(randomLowercase)
   } else {
     // Do not include lowercase characters in password
     console.log("Your password did not include lowercase characters!");
