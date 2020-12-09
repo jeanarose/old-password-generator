@@ -11,24 +11,21 @@ function writePassword() {
 
 // Store how many characters
 
-// Generate random lowercase characters in password
-function generateRandomLowercase() {
-  var alphabetLowercase = "abcdefghijklmnopqrstuvwxyz";
-  var randomLowercase =
-    alphabetLowercase[Math.floor(Math.random() * alphabetLowercase.length)];
-  return randomLowercase;
-}
-
 function generatePassword() {
+  var password = [];
   var lowercase = prompt("Y / N: Do you want to include lowercase characters?");
 
   if (lowercase === "y") {
     // Include lowercase characters in password
     console.log("Your password included lowercase characters!");
-    return generateRandomLowercase();
+    var alphabetLowercase = "abcdefghijklmnopqrstuvwxyz";
+    var randomLowercase =
+      alphabetLowercase[Math.floor(Math.random() * alphabetLowercase.length)];
+    return randomLowercase;
   } else {
     // Do not include lowercase characters in password
     console.log("Your password did not include lowercase characters!");
+    return "";
   }
 }
 
