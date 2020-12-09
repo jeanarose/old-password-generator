@@ -7,51 +7,28 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
-// Include lowercase characters in password
-function generateRandomLowercase() {
-  var lowercaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
-  return lowercaseAlphabet[Math.floor(Math.random() * lowercaseAlphabet.length)];
-}
+// Store how many characters
 
-function generatePassword(){
-  var uppercaseAlphabet = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
-  var numOfCharacters = prompt("How many characters do you want your password to be?");
-  var lowercase = prompt("Do you want to include lowercase characters?");
-  var uppercase = prompt("Do you want to include uppercase characters?");
-  var numeric = prompt("Do you want to include numeric characters?");
-  var special = prompt ("Do you want to include special characters?");
-  var password = [];
+// // Generate random lowercase characters in password
+// function generateRandomLowercase() {
+//   var alphabetLowercase = "abcdefghijklmnopqrstuvwxyz";
+//   var randomLowercase =
+//     alphabetLowercase[Math.floor(Math.random() * alphabetLowercase.length)];
+//   return randomLowercase;
+// }
 
-  if(lowercase.toLowerCase === "yes") {
+function generatePassword() {
+  var lowercase = prompt("Y / N: Do you want to include lowercase characters?");
+
+  if (lowercase === "y") {
     // Include lowercase characters in password
-    password.push(generateRandomLowercase());
-    }
-    console.log(password);
-    return generateRandomLowercase();
-
-
-  // if(uppercase.toLowerCase === "yes") {
-  //   // Include uppercase characters in password
-  // } else {
-  //   // Do not include uppercase characters in password
-  // }
-
-  // if(numeric.toLowerCase === "yes") {
-  //   // Include numbers in password
-  // } else {
-  //   // Do not include numbers in password
-  // }
-
-  // if(special === "yes") {
-  //   // Include special characters
-  // } else {
-  //   // Do not include special characters
-  // }
-  // return "temporary password";
-
+    console.log("Your password included lowercase characters!");
+  } else {
+    // Do not include lowercase characters in password
+    console.log("Your password did not include lowercase characters!");
+  }
 }
 
 // Add event listener to generate button
@@ -63,7 +40,6 @@ generateBtn.addEventListener("click", writePassword);
 // THEN I am presented with a series of prompts for password criteria
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
-
 
 // WHEN prompted for the length of the password
 // THEN I choose a length of at least 8 characters and no more than 128 characters
