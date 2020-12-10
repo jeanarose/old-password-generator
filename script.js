@@ -28,10 +28,9 @@ function generatePassword() {
     "How many characters do you want your password to be?"
   );
 
-  while (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = prompt(
-      "The password needs to be between 8 and 128 characters."
-    );
+  if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    alert("The password needs to be a number between 8 and 128 characters.")
+    return generatePassword();
   }
 
   // Ask the user if they want to include lowercase characters
@@ -60,6 +59,11 @@ function generatePassword() {
   // Adds string of number characters to chosenCharactersStrings if prompt is true
   if(includeSpecialCharacters) {
     chosenCharactersString = chosenCharactersString.concat(specialCharacters);
+  }
+
+  if(!includeLowerCase && !includeUpperCase && !includeNumbers && !includeSpecialCharacters){
+    alert("Oops, you need to select at least one password criteria!")
+    return generatePassword();
   }
 
   // Add a random character from the chosenCharactersString to generatePassword for the remaining password length
