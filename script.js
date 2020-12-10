@@ -1,9 +1,3 @@
-// Global variables so that all functions can reach them while generating and writing password
-var lowerCase = ["a", "b", "c", "d"];
-var upperCase = ["A", "B", "C", "D"];
-var numbers = ["1", "2", "3"];
-var special = ["!", "@", "#"];
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -16,58 +10,66 @@ function writePassword() {
 }
 
 function generatePassword() {
+  // Variable that holds the generated password
+  var generatedPassword = "";
+
+  // All character strings
+  var lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz";
+  var upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numberCharacters = "1234567890";
+  var specialCharacters = "!@#$%^&*()";
+
+  //String of all chosen criteria
+  var requiredCharactersString = "";
+
+  // Prompts the user to select how long they want their password to be
   var passwordLength = prompt(
     "How many characters do you want your password to be?"
   );
-  var lowerCaseOption = confirm("Do you want to include lowercase characters?");
-  var upperCaseOption = confirm("Do you want to include uppercase characters?");
-  var numbersOption = confirm("Do you want to include numbers characters?");
-  var specialCharactersOption = confirm(
-    "Do you want to include special characters?"
-  );
 
-  if (passwordLength < 8 || passwordLength > 128) {
-    alert("Oops, your password needs to be between 8 and 128 characters!");
-    return;
+  while (passwordLength < 8 || passwordLength > 128) {
+    passwordLength = prompt(
+      "The password needs to be between 8 and 128 characters."
+    );
   }
 
-  if (passwordLength !== typeof number) {
-    alert("Oops, that wasn't a number!");
-    return;
+  // Ask the user if they want to include lowercase characters
+  var includeLowerCase = confirm("Do you want to include lowercase characters in your password?");
+  // Adds string of lowercase characters to requiredCharactersString if prompt is true
+  if(includeLowerCase) {
+    requiredCharactersString = requiredCharactersString.concat(lowerCaseCharacters);
   }
 
-  if (
-    lowerCaseOption === false &&
-    upperCaseOption === false &&
-    numbersOption === false &&
-    specialCharactersOption === false
-  ) {
-    alert("Oops, you didn't select any password criteria!");
-    return;
+  // Ask the user if they want to include uppercase characters
+  var includeUpperCase = confirm("Do you want to include uppercase characters in your password?");
+  // Adds string of uppercase characters to requiredCharactersString if prompt is true
+  if(includeUpperCase) {
+    requiredCharactersString = requiredCharactersString.concat(upperCaseCharacters);
   }
 
-  var chosenCriteria = {
-    passwordLength: passwordLength,
-    lowerCaseOption: lowerCaseOption,
-    upperCaseOption: upperCaseOption,
-    numbersOption: numbersOption,
-    specialCharactersOption: specialCharactersOption
+  // Ask the user if they want to include number characters
+  var includeNumbers = confirm("Do you want to include number characters in your password?");
+  // Adds string of number characters to requiredCharactersStrings if prompt is true 
+  if(includeNumbers) {
+    requiredCharactersString = requiredCharactersString.concat(numberCharacters);
   }
-  return chosenCriteria;
 
-  // if (lowerCaseOption) {
-  //   // Generate random lowercase
-  //   console.log("Your password included lowercase characters!");
-  //   var randomLowercase =
-  //     lowerCase[Math.floor(Math.random() * lowerCase.length)];
-  //   password.push(randomLowercase);
-  //   console.log(password);
-  //   return password;
-  // } else {
-  //   // Do not include lowercase characters in password
-  //   console.log("Your password did not include lowercase characters!");
-  //   return "";
-  // }
+  // Ask user if they want to include special characters
+  var includeSpecialCharacters = confirm("Do you want to include special characters?");
+  // Adds string of number characters to requiredCharactersStrings if prompt is true
+  if(includeSpecialCharacters) {
+    requiredCharactersString = requiredCharactersString.concat(specialCharacters);
+  }
+
+  // Add a random character from the requiredCharactersString to generatePassword for the remaining password length
+  for(var i = 0; i < passwordLength; i++){
+    //random number for number of elements in requiredCharactersSTring
+    var random = Math.floor(Math.random() * requiredCharactersString.length);
+
+    generatedPassword = generatedPassword.concat(requiredCharactersString.charAt(random));
+    console.log("Generated password is: " + generatedPassword);
+  }
+  return generatedPassword;
 }
 
 // Add event listener to generate button
