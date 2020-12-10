@@ -16,6 +16,10 @@ Password Generator utilized functions, variables, prompts, confirms, conditional
 
 View the deployed application here: https://jeanarose.github.io/password-generator/
 
+## Password Generator
+
+![Screenshot of My Portfolio webpage.](./assets/images/password-generator-screenshot.png)
+
 ## Table of Contents
 
 * [Installation](#installation)
